@@ -57,7 +57,6 @@
                             data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                             id="payment-form">
                         @csrf
-  
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Name on Card</label> <input
@@ -89,11 +88,12 @@
                                     class='form-control card-expiry-year' placeholder='YYYY' size='4'
                                     type='text'>
                             </div>
-                            <div class='col-xs-12 col-md-4 form-group'>
-                                <label class='control-label'>Enter Amount</label> <input
-                                    class='form-control' placeholder='Amount'
-                                    type='number' name="amount">
-                            </div>
+                            {{-- <div class='col-xs-12 col-md-4 form-group'>
+                                <label class='control-label'>Enter Amount</label> --}}
+                                 <input
+                                    class='form-control' 
+                                    type='hidden' name="amount" value="{{$session_data[1]}}">
+                            {{-- </div> --}}
                         </div>
   
                         <div class='form-row row'>
@@ -105,7 +105,7 @@
   
                         <div class="row">
                             <div class="col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay ${{$session_data[1]}} Now</button>
                             </div>
                         </div>
                           

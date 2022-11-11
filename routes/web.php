@@ -15,10 +15,12 @@ use App\Http\Controllers\StripePaymentController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
+    return view('field-trans.form1');
+})->name('form_field');
+// Route::view('/form','field-trans.form1');
 
   
-Route::get('stripe', [StripePaymentController::class, 'stripe']);
+// Route::get('form/id', [StripePaymentController::class, 'stripe'])->name('form');
+Route::get('form/id', [StripePaymentController::class, 'stripe'])->name('form');
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+Route::post('generate_link', [StripePaymentController::class, 'generate_link'])->name('generate_link');

@@ -22,7 +22,7 @@ class StripePaymentController extends Controller
                 "amount" => 100 * $request->amount,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
-                "description" => 'email of sender is'.session()->get('data')[0]
+                "description" => 'email of sender is '.session()->get('data')[0]
         ]);
   
         Session::flash('success', 'Payment successful!');
